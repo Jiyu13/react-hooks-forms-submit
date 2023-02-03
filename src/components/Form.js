@@ -39,6 +39,13 @@ function Form(props) {
     }
   }
 
+  const listOfSubmissions = submittedData.map((data, index) => {
+    return (
+      <div key={index}>
+        {data.firstName} {data.lastName}
+      </div>
+    )
+  })
 
   return (
     <>
@@ -48,10 +55,15 @@ function Form(props) {
         <button type="submit">Submit</button>
       </form>
 
+
+
       {/* conditionally render error messages */}
       {errors.length > 0 ? 
         errors.map((error, index) => (<p key={index} style={{ color: "red" }}>{error}</p>))
         : null}
+
+      <h3>Submissions</h3>
+      {listOfSubmissions}
     </>
     
   );
