@@ -20,18 +20,24 @@ function Form(props) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    const formData ={
-      firstName: firstName,
-      lastName:lastName
-    }
 
-    const dataArray = [...submittedData, formData] // every time the form is submitted, add the new data into dataArray.
-    // console.log(dataArray) // an array with firstname and lastname of all users
-    setSubmittedData(dataArray)
-
-    setFirstName("");
-    setLastName("");
+    // first name is required
+    if (firstName.length > 0) {
+      const formData = {
+        firstName: firstName,
+        lastName:lastName
+      }
+    
+      const dataArray = [...submittedData, formData] // every time the form is submitted, add the new data into dataArray.
+      // console.log(dataArray) // an array with firstname and lastname of all users
+      setSubmittedData(dataArray)
+      setFirstName("");
+      setLastName("");
+      setErrors([])
+    } else {
+      setErrors(["First name is required!"])
     }
+  }
 
 
   return (
