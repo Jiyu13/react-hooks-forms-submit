@@ -21,6 +21,9 @@ function Form(props) {
       lastName:lastName
     }
 
+    const dataArray = [...submittedData, formData] // every time the form is submitted, add the new data into dataArray.
+    console.log(dataArray)
+    setSubmittedData(dataArray)
 
     setFirstName("");
     setLastName("");
