@@ -18,7 +18,10 @@ function Form(props) {
       firstName,
       lastName
     }
-    console.log(formData)
+    props.sendFormDataSomewhere(formData);
+
+    }
+
   }
 
   return (
