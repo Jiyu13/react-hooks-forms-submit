@@ -4,6 +4,8 @@ function Form(props) {
   const [firstName, setFirstName] = useState("Sylvia");
   const [lastName, setLastName] = useState("Woods");
 
+  const [submittedData, setSubmittedData] = useState([])
+
   function handleFirstNameChange(event) {
     setFirstName(event.target.value);
   }
@@ -15,10 +17,11 @@ function Form(props) {
   function handleSubmit(event) {
     event.preventDefault()
     const formData ={
-      firstName,
-      lastName
+      firstName: firstName,
+      lastName:lastName
     }
-    props.sendFormDataSomewhere(formData);
+
+
     setFirstName("");
     setLastName("");
     }
