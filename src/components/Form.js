@@ -23,7 +23,6 @@ function Form(props) {
     setLastName("");
     }
 
-  }
 
   return (
     <form onSubmit={handleSubmit}>
