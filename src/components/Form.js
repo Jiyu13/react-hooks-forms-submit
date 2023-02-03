@@ -4,7 +4,11 @@ function Form(props) {
   const [firstName, setFirstName] = useState("Sylvia");
   const [lastName, setLastName] = useState("Woods");
 
+  // set new state to collect all the users data, submittedData holds all input values
   const [submittedData, setSubmittedData] = useState([])
+
+  // add state for holding error message
+  const [error, setErrors] = useState([])
 
   function handleFirstNameChange(event) {
     setFirstName(event.target.value);
@@ -22,7 +26,7 @@ function Form(props) {
     }
 
     const dataArray = [...submittedData, formData] // every time the form is submitted, add the new data into dataArray.
-    console.log(dataArray)
+    // console.log(dataArray) // an array with firstname and lastname of all users
     setSubmittedData(dataArray)
 
     setFirstName("");
