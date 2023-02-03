@@ -8,7 +8,7 @@ function Form(props) {
   const [submittedData, setSubmittedData] = useState([])
 
   // add state for holding error message
-  const [error, setErrors] = useState([])
+  const [errors, setErrors] = useState([])
 
   function handleFirstNameChange(event) {
     setFirstName(event.target.value);
@@ -41,11 +41,19 @@ function Form(props) {
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" onChange={handleFirstNameChange} value={firstName} />
-      <input type="text" onChange={handleLastNameChange} value={lastName} />
-      <button type="submit">Submit</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <input type="text" onChange={handleFirstNameChange} value={firstName} />
+        <input type="text" onChange={handleLastNameChange} value={lastName} />
+        <button type="submit">Submit</button>
+      </form>
+
+      {/* conditionally render error messages */}
+      {errors.length > 0 ? 
+        errors.map((error, index) => (<p key={index} style={{ color: "red" }}>{error}</p>))
+        : null}
+    </>
+    
   );
 }
 
