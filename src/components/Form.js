@@ -19,7 +19,8 @@ function Form(props) {
       lastName
     }
     props.sendFormDataSomewhere(formData);
-
+    setFirstName("");
+    setLastName("");
     }
 
   }
